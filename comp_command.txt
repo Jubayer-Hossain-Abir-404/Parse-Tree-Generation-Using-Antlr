@@ -1,0 +1,7 @@
+Run these commands one by one in cmd (from the path you saved your grammer with a 
+.g4 extension and during running this command use your grammar file and input file 
+in liue of what is given below or in liue of comp_project and input) 
+    a) SET CLASSPATH=.;C:\Javalib\antlr-4.7.2-complete.jar;%CLASSPATH%
+    b)java -jar antlr-4.7.2-complete.jar comp_project.g4
+    c)javac -cp .;antlr-4.7.2-complete.jar comp_project*.java
+    d)java -cp .;antlr-4.7.2-complete.jar org.antlr.v4.gui.TestRig comp_project root -gui input.txt

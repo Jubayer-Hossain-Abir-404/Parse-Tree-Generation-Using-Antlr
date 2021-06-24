@@ -1,0 +1,47 @@
+grammar comp_project;
+
+root: header_file main_function;
+
+header_file: '$'  declaration ;
+
+declaration: 'Easy2r8'  ;
+
+main_function: 'package_main'  program;
+
+program : '[' code ']' ;
+
+code:	(
+		 statement
+	)+;
+
+
+statement: express 
+	   |ID '=' express 
+	   |real_op
+	   |ID inc_or_dec 	
+	   |condition
+	   |loop 
+	   ;
+
+express: express op=operator express
+	    |INT
+	    |ID
+	    | '(' express ')'
+	    ;
+
+real_op: express op=operator express;
+
+loop: 'lest' '('real_op')'  '['statement*']'  ;
+
+condition: 'only_if' '('real_op')' '['statement?']' 
+| 'otherwise'  '['statement?']';
+
+inc_or_dec: '++'|'--';
+
+operator: '>'|'<'|'*'|'/'|'+'|'-'|'>='|'<=';
+
+ID: [a-zA-Z]+ ;
+
+INT: [0-9]+ ;
+
+WS : [ \r\n\t]+ -> skip ;
